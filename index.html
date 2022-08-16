@@ -122,12 +122,14 @@
     
     //clearing the entire TODO list
     function clearList(){
-      let itemJsonArrayStr=localStorage.getItem('json');
-      itemJsonArray=JSON.parse(itemJsonArrayStr);
-      itemJsonArray=[];
-      localStorage.setItem('json',JSON.stringify(itemJsonArray));
-      alert("the TODO list is cleared");
-      update2();
+      if(confirm("Do you want to clear the list?")){
+        let itemJsonArrayStr=localStorage.getItem('json');
+        itemJsonArray=JSON.parse(itemJsonArrayStr);
+        itemJsonArray=[];
+        localStorage.setItem('json',JSON.stringify(itemJsonArray));
+        alert("the TODO list is cleared");
+        update2();
+      }
     }
 
     let add=document.getElementById("add");
